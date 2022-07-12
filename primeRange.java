@@ -20,12 +20,12 @@ public class primeRange
 
     public static boolean checkForPrime(int a)
     {
-    	int i = 1, num = i-1 ;
-    	while(i<=a)
-    	{
-    		if(a%(i++) == 0) { num++ ; }
-    	}
+      int i = 1, num = i-1 ;
+      while(i<=a)
+      {
+        if(a%(i++) == 0) { num++ ; }
+      }
         if(num == 2) { return true ; }
-	else { return false ; }
+  else { return false ; }
     }
 }
