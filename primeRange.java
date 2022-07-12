@@ -24,8 +24,8 @@ public class primeRange
     	while(i<=a)
     	{
     		if(a%(i++) == 0) { num++ ; }
-    		if(num > 2) { return false ; }
     	}
-    	return true ;
+        if(num == 2) { return true ; }
+	else { return false ; }
     }
 }
