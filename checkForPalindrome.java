@@ -8,14 +8,25 @@ class checkForPalindrome
 	public static void main(String args[])
 	{
 	  Scanner s = new Scanner(System.in);
-	  System.out.print("Enter any integer : ");
-	  if(checkForPalindrome(s.nextInt()))
+	  System.out.print("Enter the currency value : ");
+	  int V = s.nextInt();
+	  System.out.print("Enter the currency number : ");
+	  int N = s.nextInt();
+	  if(checkForPalindrome(N) && !(V<0) && !(N<0))
 	  {
-	  	System.out.print("Mr. Lalwani should use this currency.");
+	  	System.out.print("Mr. Lalwani will get "+(V*3)+" Rs. in return.");
 	  }
 	  else
 	  {
-	    System.out.print("Mr. Lalwani shouldn\'t use this currency.");	
+	    if((V<0) || (N<0))
+	    {
+	    	System.out.print("Negative values are not accepted here.");
+	    }
+
+	    else
+	    {
+	    	System.out.print("Mr. Lalwani will get "+V+" Rs. in return.");
+	    }
 	  }
 	}
 
