@@ -37,64 +37,76 @@ class sortNames
 
 	public static String[] sortAsc(String[] str)
 	{
-		String H ;
-		int z,m,n = 0;
+		int m = 0,n,p ;
 		for(String i : str)
 		{
-			m = 0 ;
+			n = 0 ;
 			for(String j : str)
 			{
-				if(i.length() > j.length() && m > n)
+				if(n>m)
 				{
-					H = i ;  i = j ;  j = H ;  str[m++] = j ;  continue ;
-				}
-				else if(i.length() == j.length()  && m > n)
-				{
-					z = 0 ;
-					while(z<i.length())
+					p = 0 ;
+					while(p<(i.length()>j.length()?j.length():i.length()))
 					{
-						if(i.charAt(z) > j.charAt(z++))
-						{
-							H = i ;  i = j ;  j = H ;  str[m] = j ;  break ;
-						}
+					   if((i.length()>j.length()?j:i).charAt(p)>(i.length()>j.length()?i:j).charAt(p))
+					   {
+					   	  str[m] = j ; str[n] = i ; i = j ; break ;
+					   }
+					   else if((i.length()>j.length()?j:i).charAt(p)<(i.length()>j.length()?i:j).charAt(p))
+					   {
+					   	 break ;
+					   }
+					   p++ ;
+					   if(p == (i.length()>j.length()?j.length():i.length()))
+					   {
+					   	  str[m] = i.length()>j.length()?j:i ;
+					   	  str[n] = i.length()>j.length()?i:j ;
+					   	  i = i.length()>j.length()?j:i ;
+					   	  break ;
+					   }
 					}
-					m++ ;	continue ;
 				}
-				m++ ;
+				n++ ;
 			}
-			str[n++] = i ;
+			m++ ;
 		}
 		return str ;
 	}
 
 	public static String[] sortDesc(String[] str)
 	{
-	   String H ;
-		int z,m,n = 0;
+	   int m = 0,n,p ;
 		for(String i : str)
 		{
-			m = 0 ;
+			n = 0 ;
 			for(String j : str)
 			{
-				if(i.length() < j.length() && m > n)
+				if(n>m)
 				{
-					H = i ;  i = j ;  j = H ;	str[m++] = j ;	continue ;
-				}
-				else if(i.length() == j.length()  && m > n)
-				{
-					z = 0 ;
-					while(z<i.length())
+					p = 0 ;
+					while(p<(i.length()>j.length()?j.length():i.length()))
 					{
-						if(i.charAt(z) < j.charAt(z++))
-						{
-							H = i ;  i = j ;  j = H ;	str[m] = j ;	break ;
-						}
+					   if((i.length()>j.length()?j:i).charAt(p)<(i.length()>j.length()?i:j).charAt(p))
+					   {
+					   	  str[m] = j ; str[n] = i ; i = j ; break ;
+					   }
+					   else if((i.length()>j.length()?j:i).charAt(p)>(i.length()>j.length()?i:j).charAt(p))
+					   {
+					   	 break ;
+					   }
+					   p++ ;
+					   if(p == (i.length()>j.length()?j.length():i.length()))
+					   {
+					   	  str[m] = i.length()>j.length()?i:j ;
+					   	  str[n] = i.length()>j.length()?j:i ;
+					   	  i = i.length()>j.length()?i:j ;
+					   	  break ;
+					   }
 					}
-					m++ ;	continue ;
 				}
-				m++ ;
+				n++ ;
 			}
-			str[n++] = i ;
+			m++ ;
 		}
 		return str ;
 	}
