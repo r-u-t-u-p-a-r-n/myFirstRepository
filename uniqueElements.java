@@ -18,19 +18,27 @@ class uniqueElements
 	  uniqueElements(A);
 	}
 
-	public static void uniqueElements(int[] a)
+	public static boolean check(int a[], int A)
 	{
-		int n,n1 = 0 ;
 		for(int i : a)
 		{
-			n = 0 ;
-			for(int j : a)
-			{
-				if(i == j)  { n++ ; }
-				if(n == 2) { break ; }
-			}
-			if(n == 1) { n1++ ; }
+			if(i == A)
+				return true ;
 		}
-		System.out.print("Total count of unique elements in given array : "+n1);
+		return false ;
+	}
+
+	public static void uniqueElements(int[] a)
+	{
+		int n = 0 ;
+		for(int i : a) { n++; }
+		int b[] = new int[n];
+		n = 0 ;
+		for(int i : a)
+		{
+			if(!check(b,i))
+				b[n++] = i ;
+		}
+		System.out.print("Total count of unique elements in given array : "+n);
 	}
 }
